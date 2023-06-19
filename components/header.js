@@ -9,23 +9,11 @@ import {
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
 import Link from 'next/link'
+import CompanyLogo from '@components/company_logo'
 
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
-}
-
-function CompanyLogo() {
-    return (
-        <Link href="/" className="-m-1.5 p-1.5">
-            <Image
-                src='/logos/company-logo-removebg-preview.png'
-                alt='Company logo'
-                width={150}
-                height={150}
-            />
-        </Link>
-    )
 }
 
 function LocalAuthButtons({ className }) {
@@ -33,7 +21,7 @@ function LocalAuthButtons({ className }) {
         <div className={className}>
             <Link
                 href="/auth/signup"
-                className="rounded-sm mx-4 text-md font-semibold leading-6 text-blue-900"
+                className="rounded-sm mx-4 text-md font-semibold leading-6 text-blue-400"
             >
                 Sign Up
             </Link>
@@ -70,7 +58,7 @@ export default function Header() {
                 </div>
 
                 {/* <!-- Mobile menu closed button --> */}
-                <div className="flex lg:hidden">
+                <div className="flex md:hidden">
                     <button
                         type="button"
                         className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -82,9 +70,9 @@ export default function Header() {
                 </div>
 
                 {/* <!-- Menu --> */}
-                <Popover.Group className="hidden lg:flex lg:gap-x-12">
+                <Popover.Group className="hidden md:flex md:gap-x-12">
                     <Popover className="relative">
-                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                        <Popover.Button className="flex items-center gap-x-1 text-base font-semibold leading-6 text-gray-500 outline-none">
                             Book
                             <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
                         </Popover.Button>
@@ -114,7 +102,7 @@ export default function Header() {
                                                 />
                                             </div>
                                             <div className="flex-auto">
-                                                <Link href={item.href} className="block font-semibold text-gray-900">
+                                                <Link href={item.href} className="block font-semibold text-base text-gray-400">
                                                     {item.name}
                                                     <span className="absolute inset-0" />
                                                 </Link>
@@ -131,7 +119,7 @@ export default function Header() {
                         <Link
                             key={item.name}
                             href={item.href}
-                            className="text-md font-semibold leading-6 text-gray-900"
+                            className="text-base font-semibold leading-6 text-gray-500"
                         >
                             {item.name}
                         </Link>
@@ -139,12 +127,12 @@ export default function Header() {
                 </Popover.Group>
 
                 <LocalAuthButtons
-                    className={classNames('hidden lg:flex lg:flex-1 lg:justify-end items-center')}
+                    className={classNames('hidden md:flex md:flex-1 md:justify-end items-center')}
                 />
             </nav>
 
             {/* <!-- Mobile menu --> */}
-            <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+            <Dialog as="div" className="md:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
                 <div className="fixed inset-0 z-10" />
                 <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">

@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`h-screen bg-white ${fontFamily.className}`}>
+    <html lang="en" className={`bg-white ${fontFamily.className}`}>
       <body className="bg-white h-full">
         {children}
       </body>
