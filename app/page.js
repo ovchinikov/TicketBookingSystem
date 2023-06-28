@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Carousel, Button } from "@material-tailwind/react";
 import Header from "@components/header";
 import Footer from "@components/footer";
+import CustomButton from "@components/button";
+import classNames from "./utils";
 
 export default function App() {
   const carouselStockImages = [
@@ -23,9 +25,14 @@ export default function App() {
         <p className="text-md text-gray-600">
           Travel with us and feel the comfort that we provide
         </p>
-        <Link href="/book-ticket">
-          <Button>Travel Now</Button>
-        </Link>
+
+        <CustomButton
+          href="/book"
+          name="Travel Now"
+          className={classNames(
+            "block w-full rounded-md bg-blue-500 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          )}
+        />
       </div>
 
       <Carousel

@@ -8,26 +8,24 @@ import { Button } from "@material-tailwind/react";
 import Image from "next/image";
 import Link from "next/link";
 import CompanyLogo from "@components/company_logo";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import CustomButton from "@components/button";
+import classNames from "@app/utils";
 
 function LocalAuthButtons({ className }) {
   return (
     <div className={className}>
-      <Link
-        href="/auth/signup"
-        className="rounded-sm mx-4 text-md leading-6 text-blue-400"
-      >
-        <Button variant="text" className="flex items-center gap-2 px-8 py-2.5">
-          SignUp
-        </Button>
-      </Link>
-
-      <Link href="/auth/login">
-        <Button color="blue">Login</Button>
-      </Link>
+      <CustomButton
+        name="Register"
+        href="/register"
+        className={classNames("text-blue-500 mx-4 outline-none")}
+      />
+      <CustomButton
+        name="Login"
+        href="/login"
+        className={classNames(
+          "block w-full rounded-md bg-blue-500 px-6 py-3.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        )}
+      />
     </div>
   );
 }
